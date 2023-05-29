@@ -1,0 +1,26 @@
+<input type="text" id="searchBar" placeholder="Search...">
+<ul id="linkList">
+  <li><a href="#">Link 1</a></li>
+  <li><a href="#">Link 2</a></li>
+  <li><a href="#">Link 3</a></li>
+  <li><a href="#">Link 4</a></li>
+  <li><a href="#">Link 5</a></li>
+</ul>
+
+<script>
+  let searchBar = document.getElementById('searchBar');
+  searchBar.addEventListener('keyup', (e) => {
+    let searchedValue = e.target.value.toLowerCase();
+    let linkList = document.getElementById('linkList');
+    let links = linkList.getElementsByTagName('a');
+
+    for (let i = 0; i < links.length; i++) {
+      let link = links[i];
+      if (link.textContent.toLowerCase().indexOf(searchedValue) === -1) {
+        link.parentNode.style.display = 'none';
+      } else {
+        link.parentNode.style.display = '';
+      }
+    }
+  });
+</script>

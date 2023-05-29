@@ -1,0 +1,104 @@
+```
+<!DOCTYPE html>
+<html lang="en" style="background-color: black;">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    h1 {
+      color: white;
+    }
+    .container {
+      display: flex;
+    }
+    .search {
+      background-color: white;
+      flex: 20%;
+      margin-right: 12px;
+    }
+    .display {
+      background-color: white;
+      flex: 75%;
+    }
+    .iframe {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome</h1>
+  <div class="container">
+    <div class="search">
+      <input type="text" class="form-control" id="searchInput" placeholder="Search">
+      <button type="submit" class="btn btn-primary" onclick="search()">Submit</button>
+      <div id="hiddenLinks" style="display:none">
+        <a href="page1.html">Page 1</a>
+        <a href="page2.html">Page 2</a>
+        <a href="page3.html">Page 3</a>
+      </div>
+    </div>
+    <div class="display">
+      <iframe src="" id="displayIframe" class="iframe"></iframe>
+      ```
+<input type="text" id="search" placeholder="Search...">
+<ul>
+  <li><a href="#">Car</a></li>
+  <li><a href="#">Link 2</a></li>
+  <li><a href="#">Link 3</a></li>
+  <li><a href="#">Link 4</a></li>
+  <li><a href="#">Link 5</a></li>
+</ul>
+
+<script>
+  const search = document.getElementById('search');
+
+  search.addEventListener('keyup', function(event) {
+    const filter = event.target.value.toLowerCase();
+    const links = document.querySelectorAll('ul li a');
+
+    links.forEach(function(link) {
+      const text = link.textContent.toLowerCase();
+      if (text.includes(filter)) {
+        link.style.display = 'block';
+      } else {
+          link.style.display = 'none';
+        }
+    });
+  });
+</script>
+```
+    </div>
+  </div>
+
+  <script>
+    function search() {
+      const input = document.getElementById('searchInput').value;
+      const links = Array.from(document.getElementById('hiddenLinks').getElementsByTagName("a"));
+      let found = false;
+
+      links.forEach(link => {
+        if (link.innerHTML.toLowerCase().includes(input.toLowerCase())) {
+          document.getElementById('displayIframe').src = link.href;
+          found = true;
+        }
+      });
+
+      if (!found) {
+        links.forEach(link => {
+          link.style.display = 'block';
+          link.onclick = e => {
+            e.preventDefault();
+            document.getElementById('displayIframe').src = link.href;
+          };
+        });
+      }
+    }
+  </script>
+</body>
+</html>
+```

@@ -1,0 +1,58 @@
+```javascript
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  .search-result {
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+<input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Search..">
+
+<div id="searchResults"></div>
+
+<script>
+var data = [
+  { keywords: ['dog', 'house'], link: 'html.html' },
+  { keywords: ['dog', 'house'], link: 'html.html' },
+  { keywords: ['dog1', 'house'], link: 'html2.html' },
+  { keywords: ['dog', 'house'], link: 'html.html' }
+];
+
+function searchFunction() {
+  var input, filter, results;
+  input = document.getElementById('searchInput');
+  filter = input.value.toLowerCase();
+  results = document.getElementById('searchResults');
+  results.innerHTML = '';
+
+  if (filter === '') {
+    return;
+  }
+
+  data.forEach(function(item) {
+    var match = false;
+    item.keywords.forEach(function(keyword) {
+      if (keyword.includes(filter)) {
+        match = true;
+      }
+    });
+
+    if (match) {
+      var result = document.createElement('a');
+      result.href = item.link;
+      result.textContent = item.link;
+      result.className = 'search-result';
+      results.appendChild(result);
+      result.style.display = 'block';
+    }
+  });
+}
+</script>
+
+</body>
+</html>
+```

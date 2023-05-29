@@ -1,0 +1,40 @@
+```
+<html>
+<head>
+<title>Welcome</title>
+<style>
+body {
+  background-color: white;
+  color: black;
+}
+button {
+  background-color: black;
+  color: white;
+}
+</style>
+</head>
+<body>
+<h1>Welcome</h1>
+<button onclick="changeColor()">Change Theme</button>
+<script>
+function changeColor() {
+  var body = document.querySelector('body');
+  var button = document.querySelector('button');
+  if (body.style.backgroundColor === 'white') {
+    body.style.backgroundColor = 'black';
+    body.style.color = 'white';
+    button.style.backgroundColor = 'white';
+    button.style.color = 'black';
+    button.innerHTML = 'Change Back';
+  } else {
+    body.style.backgroundColor = 'white';
+    body.style.color = 'black';
+    button.style.backgroundColor = 'black';
+    button.style.color = 'white';
+    button.innerHTML = 'Change Color';
+  }
+}
+</script>
+</body>
+</html>
+```

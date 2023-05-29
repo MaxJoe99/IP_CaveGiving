@@ -1,0 +1,35 @@
+
+<body>
+  <input type="text" id="search" placeholder="Search" onkeyup="searchFilter()">
+  <div id="results"></div>
+  <script>
+    const data = [
+      { keywords: ['dog', 'puppy'], text: 'Dog', link: 'html.html' },
+      { keywords: ['house', 'home'], text: 'House', link: 'html.html' },
+      { keywords: ['car', 'vehicle'], text: 'Car', link: 'html.html' },
+      { keywords: ['dragon', 'mythical'], text: 'Dragon', link: 'html.html' },
+      { keywords: ['manager', 'supervisor'], text: 'Manager', link: 'html.html' }
+    ];
+
+    function searchFilter() {
+      const input = document.getElementById('search').value.toLowerCase();
+      const resultsDiv = document.getElementById('results');
+      resultsDiv.innerHTML = '';
+
+      if (input === '') return;
+
+      for (const item of data) {
+        for (const keyword of item.keywords) {
+          if (keyword.includes(input)) {
+            const link = document.createElement('a');
+            link.href = item.link;
+            link.textContent = item.text;
+            resultsDiv.appendChild(link);
+            resultsDiv.appendChild(document.createElement('br'));
+            break;
+          }
+        }
+      }
+    }
+  </script>
+</body>

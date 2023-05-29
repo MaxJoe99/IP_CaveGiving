@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Search Bar</title>
+  <style>
+    .results a {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" id="searchBar" oninput="filterResults()" placeholder="Search for keywords...">
+  <div class="results" id="results"></div>
+  
+  <script>
+    const data = [
+      { keywords: ['dog', 'puppy'], link: 'dog.html' },
+      { keywords: ['cat', 'kitten'], link: 'cat.html' },
+      { keywords: ['house', 'home'], link: 'house.html' }
+    ];
+
+    function filterResults() {
+      const input = document.getElementById('searchBar');
+      const resultsDiv = document.getElementById('results');
+      const searchTerm = input.value.toLowerCase();
+
+      // Clear previous results
+      resultsDiv.innerHTML = '';
+
+      data.forEach(item => {
+        for (const keyword of item.keywords) {
+          if (keyword.toLowerCase().includes(searchTerm)) {
+            const link = document.createElement('a');
+            link.href = item.link;
+            link.textContent = item.link;
+            resultsDiv.appendChild(link);
+            break;
+          }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
