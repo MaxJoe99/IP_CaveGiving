@@ -1,4 +1,3 @@
-
 .fa {
   padding: 20px;
   font-size: 30px;
@@ -9,16 +8,14 @@
 }
 
 .fa:hover {
-    opacity: 0.7;
+  opacity: 0.7;
 }
 
 .fa-facebook {
-  background: #3B5998;
+  background: #3b5998;
   color: white;
   border-radius: 50%;
 }
-
-
 
 /*---------------Navigation effect------------------------------------------------------------------------------------------*/
 header {
@@ -26,10 +23,11 @@ header {
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-  background-size:cover;
+  background-size: cover;
   /*delete*/
 }
-a:visited , a {
+a:visited,
+a {
   color: ghostwhite;
   text-decoration: none;
   margin-left: 25px;
@@ -44,8 +42,6 @@ a:hover {
   text-decoration: underline;
 }
 
-
-
 /*---------------Body------------------------------------------------------------------------------------------*/
 body,
 html {
@@ -53,103 +49,93 @@ html {
   background-color: black;
 }
 
-
 p {
   color: white;
   font-size: 18px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
-
-
 
 H1 {
   color: white;
   text-align: center;
   font-size: 32px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   letter-spacing: 12px;
 }
 
-
-
 /*----------------------------------Screen size-----------------------------------------------------*/
 
 /*----------------------------------Screen size-----------------------------------------------------*/
-
-
 
 @media only screen and (min-width: 1001px) {
-  .smallScreen , .overlay
-  {
+  .smallScreen,
+  .overlay {
     display: none;
   }
-  nav .largeScreen a {border: solid 2px white; padding: 2px;
-  margin: 16px;}
+  nav .largeScreen a {
+    border: solid 2px white;
+    padding: 2px;
+    margin: 16px;
   }
-  @media only screen and (max-width: 1000px) {
-    .largeScreen {
-      display: none;
-    }
-    .overlay a {font-size: 20px}
-    .overlay .closebtn {
+}
+@media only screen and (max-width: 1000px) {
+  .largeScreen {
+    display: none;
+  }
+  .overlay a {
+    font-size: 20px;
+  }
+  .overlay .closebtn {
     font-size: 40px;
     top: 15px;
     right: 35px;
-    }
-     
-
-    .overlay {
-      background-color: antiquewhite;
-      height: 100%;
-      width: 0;
-      position: fixed;
-      z-index: 1;
-      top: 0;
-      left: 0;
-      background-color: rgb(0,0,0);
-      background-color: rgba(0,0,0, 0.9);
-      overflow-x: hidden;
-      transition: 0.5s;
-    }
-    
-    .overlay-content {
-      position: relative;
-      top: 25%;
-      width: 50%;
-      text-align: center;
-      margin-top: 30px;
-    }
-    
-    .overlay a {
-      padding: 8px;
-      text-decoration: none;
-      font-size: 36px;
-      color: white;
-      display: block;
-      transition: 0.3s;
-    }
-    
-    .overlay a:hover, .overlay a:focus {
-      color: white;
-    }
-    
-    .overlay .closebtn {
-      position: absolute;
-      top: 20px;
-      right: 45px;
-      font-size: 60px;
-    }
-    
   }
-  @media screen and (max-height: 450px) {
-   
+
+  .overlay {
+    background-color: antiquewhite;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
   }
-  
 
+  .overlay-content {
+    position: relative;
+    top: 25%;
+    width: 50%;
+    text-align: center;
+    margin-top: 30px;
+  }
 
+  .overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+  }
 
+  .overlay a:hover,
+  .overlay a:focus {
+    color: white;
+  }
 
-
+  .overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+  }
+}
+@media screen and (max-height: 450px) {
+}
 
 /*flex box*/
 .states {
@@ -158,7 +144,7 @@ H1 {
   flex-wrap: wrap;
 }
 
-.states>div {
+.states > div {
   color: ghostwhite;
   width: 10%;
   margin: 10px;
@@ -170,6 +156,6 @@ H1 {
   min-width: 148px;
 }
 
-.states>div:nth-child(2) {
+.states > div:nth-child(2) {
   width: 75%;
 }
