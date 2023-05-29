@@ -69,30 +69,6 @@ H1 {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   letter-spacing: 12px;
 }
-/*---------------footer------------------------------------------------------------------------------------------*/
-
-footer > div  > div > a{
-  font-size: 18px;
-  color: ghostwhite;
-}
-footer > div  > div > p{
-
-  color: ghostwhite;
-}
-
-#contacts_div > div {
-  margin: 10px;
-  max-width: 100px;
-  color: lightblue;
-  text-align: center;
-  font-size: 20px;
-  
-}
-#contacts_div {
-  display: flex;
-  flex-wrap: nowrap;
-  background-color: black;
-}
 
 
 
