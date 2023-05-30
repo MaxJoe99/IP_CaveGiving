@@ -1,3 +1,7 @@
+<!--
+  This contains the information regarding documentation.
+It also contains the script for a log builder and the collapsible bar.
+-->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,11 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/HTMLcss.css">
-    <script src="../js/bootstrap.min.js"></script>
+
     <title>Logging Information</title>
   </head>
   <body>
-    <header>
       <h1>Documentation</h1>
       <h2>Logging Information</h2>
       <p>Filling out a detailed log in any care giving setting involves documenting the activities and incidents that occurred during the shift or caregiving session. Here are the steps to follow:</p>
@@ -24,6 +27,34 @@
       </ol>
       <br>
       <p>Overall, a detailed log should provide a clear and accurate account of the caregiving session, allowing other caregivers, medical professionals, and family members to understand what happened and make informed decisions about the person's care and treatment. This is required.</p>
+      <br>
+      <button type="button" class="collapsible">Log builder</button>
+      <div class="content">
+        <form id="myForm">
+          <label for="name">Client Name:</label>
+          <br>
+          <input type="text" id="name" name="name" required>
+          <br>
+          <label for="activity">What did the client do?</label>
+          <br>
+          <input type="text" id="activity" name="activity" required>
+          <br>
+          <label for="duration">For how long?</label>
+          <br>
+          <input type="text" id="duration" name="duration" required>
+          <br>
+          <label for="description">What happened? Add any relevant details.</label>
+          <br>
+          <textarea id="description" name="description" required></textarea>
+          <br>
+          <label for="response"> You responded by?</label>
+          <br>
+          <textarea id="response" name="response" required></textarea>
+          <br>
+          <input type="submit" value="Submit">
+        </form>
+        <p id="result" style="color: aqua;"></p>
+      </div>
       <h2>Mandatory reporting</h2>
       <p>Mandatory reporting in a care giving setting refers to the legal requirement for health care professionals to report certain incidents or observations to the relevant authorities.</p>
       <ul>
@@ -47,5 +78,40 @@
         <li> Medication abuse: This occurs when a caregiver inappropriately manages a care recipient's medications, such as giving incorrect doses, withholding necessary medications, or overmedicating the person to control their behavior or sedate them. </li>
         <li> Violation of rights: This includes not respecting the care recipient's personal boundaries, privacy, or autonomy, such as making decisions on their behalf without consent, or denying them access to information or the opportunity to participate in decisions that affect their life. </li>
       </ol>
-  </body>
+  <!-- T-log Behavior -->
+  <script>
+    const form = document.getElementById('myForm');
+    const resultElement = document.getElementById('result');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault(); // Prevent the form from submitting in the traditional way
+      // Retrieve the form data
+      const name = document.getElementById('name').value;
+      const activity = document.getElementById('activity').value;
+      const duration = document.getElementById('duration').value;
+      const description = document.getElementById('description').value;
+      const response = document.getElementById('response').value;
+      // Display the form data in the result element
+      resultElement.textContent = `${name} did ${activity} for ${duration}. ${description}. I responded by "${response}".`;
+      // Clear the form fields
+      form.reset();
+    });
+    /*For collapsible bar*/
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    }
+  </script>
+      <script src="../js/bootstrap.min.js"></script>
+      <script src="../js/js.js"></script>
+    </body>
+
 </html>
