@@ -33,7 +33,7 @@ toggle between hiding and showing the dropdown content */
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
-
+// goes through list of keywords
 function filterFunction() {
   var input, filter, ul, li, a, i;
   input = document.getElementById("myInput");
@@ -92,14 +92,13 @@ const data = [{
       link: 'trainings/trainingLog.html'
   }
 ];
-
+// this function is for search bar filter
 function searchFilter() {
-  const input = document.getElementById('search').value.toLowerCase();
+  const input = document.getElementById('search').value.toLowerCase();// gets search value and puts it as lower case
   const resultsDiv = document.getElementById('results');
   resultsDiv.innerHTML = '';
-
+// links for the search bar below
   if (input === '') return;
-
   for (const item of data) {
       for (const keyword of item.keywords) {
           if (keyword.includes(input)) {
