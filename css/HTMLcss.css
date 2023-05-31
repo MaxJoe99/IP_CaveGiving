@@ -5,6 +5,9 @@ h1 {
   h2 {
     font-size: 22px;
   }
+  h3 {
+    font-size: 18px;
+  }
   .collapsible {
     color: white;
     cursor: pointer;
@@ -24,4 +27,7 @@ h1 {
     padding: 0 18px;
     display: none;
     overflow: hidden;
+  }
+  div {
+    margin: 22px;
   }

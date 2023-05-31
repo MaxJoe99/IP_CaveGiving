@@ -15,41 +15,53 @@
       width: 100%;
     }
   </style>
-  <body>
-    <h2>Emergency Information</h2>
-    <p>In case of emergencies in Washington state, here is a list of important contact numbers and resources related to caregiving and emergency response:</p>
-    <ol>
-      <li> Emergency (Police, Fire, Ambulance): Call 911 <br>
-        <p>When you call 911, let the operator know the nature of the emergency, your location, and stay on the phone until they provide further instructions or help arrives.</p>
-      </li>
-      <li> Washington Poison Control Center: 1-800-222-1222 <br>
-        <p>In case of poisoning or exposure to dangerous substances, this toll-free number is available 24/7. Trained professionals will provide immediate assistance and advice.</p>
-      </li>
-      <li> Washington State Department of Social and Health Services (DSHS) <br> If you require information or resources about caregiving services, contact DSHS: <br> - Phone: 1-877-501-2233 <br> - Website: https://www.dshs.wa.gov/ <br>
-        <p>DSHS can offer support and guidance for caregiving issues such as elderly care, child care, and disability services.</p>
-      </li>
-      <li> Adult Protective Services (APS) <br> In case of abuse, neglect, or financial exploitation of vulnerable adults, contact APS: <br> - Phone: 1-866-363-4276 <br> - Website: https://www.dshs.wa.gov/altsa/home-and-community-services/adult-protective-services-aps <br>
-        <p>APS provides support and protection for vulnerable adults by investigating allegations and ensuring their safety.</p>
-      </li>
-      <li> Child Protective Services (CPS) <br> To report child abuse or for information about children at risk, contact CPS: <br> - Phone: 1-866-ENDHARM (1-866-363-4276) <br> - Website: https://www.dshs.wa.gov/ca/child-safety-and-protection/report-child-or-vulnerable-adult-abuse <br>
-        <p>CPS works to protect children from abuse and neglect.</p>
-      </li>
-    </ol>
-    <p>Keep these numbers readily available and accessible to ensure a prompt response in case of emergencies. It is essential to be prepared, especially in caregiving situations.</p>
+  <div>
+    <body>
+      <h2>Emergency Information</h2>
+      <p>In case of emergencies in Washington state, here is a list of important contact numbers and resources related to caregiving and emergency response:</p>
+      <ol>
+        <li> Emergency (Police, Fire, Ambulance): Call 911 <br>
+          <p>When you call 911, let the operator know the nature of the emergency, your location, and stay on the phone until they provide further instructions or help arrives.</p>
+        </li>
+        <li> Washington Poison Control Center: 1-800-222-1222 <br>
+          <p>In case of poisoning or exposure to dangerous substances, this toll-free number is available 24/7. Trained professionals will provide immediate assistance and advice.</p>
+        </li>
+        <li> Washington State Department of Social and Health Services (DSHS) <br> If you require information or resources about caregiving services, contact DSHS: <br> - Phone: 1-877-501-2233 <br> - Website: https://www.dshs.wa.gov/ <br>
+          <p>DSHS can offer support and guidance for caregiving issues such as elderly care, child care, and disability services.</p>
+        </li>
+        <li> Adult Protective Services (APS) <br> In case of abuse, neglect, or financial exploitation of vulnerable adults, contact APS: <br> - Phone: 1-866-363-4276 <br> - Website: https://www.dshs.wa.gov/altsa/home-and-community-services/adult-protective-services-aps <br>
+          <p>APS provides support and protection for vulnerable adults by investigating allegations and ensuring their safety.</p>
+        </li>
+        <li> Child Protective Services (CPS) <br> To report child abuse or for information about children at risk, contact CPS: <br> - Phone: 1-866-ENDHARM (1-866-363-4276) <br> - Website: https://www.dshs.wa.gov/ca/child-safety-and-protection/report-child-or-vulnerable-adult-abuse <br>
+          <p>CPS works to protect children from abuse and neglect.</p>
+        </li>
+      </ol>
+      <p>Keep these numbers readily available and accessible to ensure a prompt response in case of emergencies. It is essential to be prepared, especially in caregiving situations.</p>
+  
+      <div id="map" label="Map to DSHS"></div>
+  </div>
+  
+  
 
-    <div id="map"></div>
-    <script>
-      // Create a new map instance
-      var map = L.map('map').setView([	47.482880, -122.217064], 2);
-  
-      // Add the OpenStreetMap tile layer
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
-        maxZoom: 18,
-      }).addTo(map);
-  
-      // Add DSHS marker to the map
-      L.marker([	47.474359802162205, -122.2225923547045]).addTo(map);
-    </script>
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script>
+    const latitudeDS = 47.474359802162205;
+    const longitudeDS = -122.2225923547045;
+    const latitudeH = 47.8068132;
+    const longitudeH = -122.1836197;
+    // Create the map centered on the given coordinates
+    const map = L.map('map').setView([latitudeDS, longitudeDS], 13);// zoom level is 13
+
+    // OpenStreetMap tile layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+      maxZoom: 19,// max zoom in on map
+    }).addTo(map);
+
+    // Adds markers at the specified coordinates
+    L.marker([latitudeDS, longitudeDS]).addTo(map);
+    L.marker([latitudeH, longitudeH]).addTo(map);
+  </script>
+ 
   </body>
 </html>
