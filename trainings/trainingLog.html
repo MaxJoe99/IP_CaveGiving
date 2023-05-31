@@ -29,7 +29,7 @@ It also contains the script for a log builder and the collapsible bar.
       <br>
       <p>Overall, a detailed log should provide a clear and accurate account of the caregiving session, allowing other caregivers, medical professionals, and family members to understand what happened and make informed decisions about the person's care and treatment. This is required.</p>
       <br>
-      <button type="button" class="collapsible">Log builder</button>
+      <button type="button" class="collapsible">Log builder Example#1</button>
       <div class="content">
         <form id="myForm">
           <label for="name">Client Name:</label>
@@ -55,6 +55,28 @@ It also contains the script for a log builder and the collapsible bar.
           <input type="submit" value="Submit">
         </form>
         <p id="result" style="color: aqua;"></p>
+      </div>
+      <br>
+      <button type="button" class="collapsible">Log builder Example#2</button>
+      <div class="content">
+        <form>
+          <h2>t-log Outling</h2>
+          <p>client name</p>
+          <input type="text" id="client_name" name="CLeint" required>
+          <br>
+          <p>activity, example walk, run, drive</p>
+          <input type="text" id="client_activity" name="CLeint" required>
+          <br>
+          <p>place, beach, neighborhood</p>
+          <input type="text" id="client_place" name="CLeint" required>
+          <br>
+          <input type="text" id="client_time" name="CLeint" value="time in minutes" required>
+          <br>
+          <br>
+          <input type="button" name="clickbton1" value="submit" onclick="buttontlogPuch()">
+        </form>
+        <input type="text" id="displayClientActivity">
+        <button onclick="CopyCLientActivity()">Copy text</button>
       </div>
       <h2>Mandatory reporting</h2>
       <p>Mandatory reporting in a care giving setting refers to the legal requirement for health care professionals to report certain incidents or observations to the relevant authorities.</p>
@@ -113,8 +135,62 @@ It also contains the script for a log builder and the collapsible bar.
         }
       });
     }
+// create the time
+    function time() {
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+        var today = mm + '/' + dd + '/' + yyyy;
+        return today;
+      }
 
+      function buttontlogPuch() {// creates simple log
+        var today = time();
+        var name = (document.getElementById("client_name").value);
+        var activity = (document.getElementById("client_activity").value);
+        var place = (document.getElementById("client_place").value);
+        var times = (document.getElementById("client_time").value);
+        if (times.length == "") {
+          times = " unknow about of time";
+        }
+        if (activity.length == 0) {
+          alert("must add activity for outing")
+        } else {
+        }
+        document.getElementById("displayClientActivity").value = "On " + today + ", " + name + " went for a " + activity + " for " + times + " around " + place;
+      }
 
+      function CopyCLientActivity() { // copies text 
+        // Get the text field
+        var copyText = document.getElementById("displayClientActivity");
+        // Select the text field
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); // For mobile devices
+        // Copy the text inside the text field
+        navigator.clipboard.writeText(copyText.value);
+        // Alert the copied text
+        alert("Copied the text \n\n" + copyText.value);
+      }
+// future plans for radio buttons
+      function buttom() {
+        var today = time();
+        var printOut = "On " + today + ", the client was assisted with ";
+        if (document.getElementById('nailCare').checked == true) {
+          printOut += "nail care, ";
+        }
+        if (document.getElementById('brushTeeth').checked == true) {
+          printOut += " brushing their teeth, ";
+        }
+        if (document.getElementById('shower').checked == true) {
+          printOut += "a shower, ";
+        }
+        if (document.getElementById('pts').checked == true) {
+          printOut += " their PTs, ";
+        }
+        printOut += " and their medications.";
+        document.getElementById("displayClientClean").value = printOut;
+      }
   </script>
       <script src="../js/bootstrap.min.js"></script>
       

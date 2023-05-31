@@ -126,8 +126,6 @@ function myFunction() {
 
 
 
-/*----------------------------------------- Desktop design-----------------------------------------*/
-
 
   
   
@@ -150,3 +148,7 @@ function myFunction() {
             button.innerHTML = 'Change Color';
         }
       }
+
+
+
+

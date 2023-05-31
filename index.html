@@ -64,5 +64,18 @@
         <p>Type * for all links</p>
       </div>
     </div>
+    <canvas id="canvas"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/gh/WallpaperEngine/ParticleJS/WPENGNJSParticle.js"></script>
+
+    <script>
+      window.onload = function() {
+          // Specify the path to your JSON file
+          var jsonPath = "path/to/your/wallpaper.json";
+          
+          // Initialize Wallpaper Engine
+          WallpaperEngine.init("canvas", jsonPath);
+      };
+  </script>
   </body>
 </html>
